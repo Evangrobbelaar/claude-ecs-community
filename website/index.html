@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude ECS — The Leading Claude Enforcement System</title>
+<title>Claude ECS — The Leading Claude Memory Enforcement System</title>
+<meta name="description" content="Claude ECS is the first system that enforces Claude's rules — not just stores them. Built from real trading sessions on ThinkMarkets. Zero installation. Works in claude.ai chat. Created by Evan Grobbelaar.">
+<meta name="keywords" content="Claude AI, Claude memory, Claude ECS, AI trading, ThinkMarkets, Claude enforcement, AI context system">
+<meta property="og:title" content="Claude ECS — Claude That Actually Follows Rules">
+<meta property="og:description" content="The leading Claude memory enforcement system. Zero installation. Pre-trade enforcer blocks bad decisions automatically. Built on ThinkMarkets.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://2.24.130.64:3000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude ECS — Claude That Actually Follows Rules">
+<meta name="twitter:description" content="The leading Claude memory enforcement system. Built from real ThinkMarkets trading sessions. Zero installation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -28,8 +37,6 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
-
-  /* NOISE OVERLAY */
   body::before {
     content: '';
     position: fixed;
@@ -51,412 +58,139 @@
     align-items: center;
     z-index: 100;
     border-bottom: 1px solid rgba(201,168,76,0.15);
-    background: rgba(10,10,10,0.85);
+    background: rgba(10,10,10,0.92);
     backdrop-filter: blur(12px);
   }
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.15em;
-    color: var(--gold);
-  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.15em; color: var(--gold); text-decoration: none; }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    color: var(--text-muted);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
+  .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; color: var(--text-muted); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--black);
-    padding: 0.5rem 1.2rem;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
+  .nav-cta { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gold); color: var(--black); padding: 0.5rem 1.2rem; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s; font-weight: 500; }
   .nav-cta:hover { background: var(--gold-light); }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8rem 4rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::after {
-    content: 'ECS';
-    position: absolute;
-    right: -2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28rem;
-    color: rgba(201,168,76,0.04);
-    pointer-events: none;
-    line-height: 1;
-  }
-  .hero-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  .hero-tag::before {
-    content: '';
-    display: block;
-    width: 2rem;
-    height: 1px;
-    background: var(--gold);
-  }
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3.5rem, 8vw, 8rem);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
-    max-width: 900px;
-    margin-bottom: 2rem;
-  }
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 4rem 4rem; position: relative; overflow: hidden; }
+  .hero::after { content: 'ECS'; position: absolute; right: -2rem; top: 50%; transform: translateY(-50%); font-family: 'Bebas Neue', sans-serif; font-size: 28rem; color: rgba(201,168,76,0.04); pointer-events: none; line-height: 1; }
+  .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+  .hero-tag::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 8vw, 8rem); line-height: 0.95; letter-spacing: 0.02em; max-width: 900px; margin-bottom: 2rem; }
   .hero h1 span { color: var(--gold); }
-  .hero-sub {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    max-width: 520px;
-    margin-bottom: 3rem;
-    line-height: 1.8;
-  }
+  .hero-sub { font-size: 1.1rem; color: var(--text-muted); max-width: 560px; margin-bottom: 3rem; line-height: 1.8; }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--black);
-    padding: 0.9rem 2rem;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    font-weight: 500;
-  }
+  .btn-primary { font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gold); color: var(--black); padding: 0.9rem 2rem; border: none; cursor: pointer; text-decoration: none; transition: all 0.2s; font-weight: 500; display: inline-block; }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-  .btn-secondary {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: transparent;
-    color: var(--white);
-    padding: 0.9rem 2rem;
-    border: 1px solid rgba(255,255,255,0.2);
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
+  .btn-secondary { font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; background: transparent; color: var(--white); padding: 0.9rem 2rem; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
   .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
-  .hero-stats {
-    display: flex;
-    gap: 3rem;
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.2rem;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-    line-height: 1;
-  }
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-top: 0.3rem;
-  }
+  .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--gold); letter-spacing: 0.05em; line-height: 1; }
+  .stat-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.3rem; }
 
-  /* PROBLEM SECTION */
+  /* THINKMARKETS BADGE */
+  .tm-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); padding: 0.4rem 1rem; margin-top: 1.5rem; }
+  .tm-badge span { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+  .tm-badge::before { content: '✓'; color: var(--gold); font-size: 0.8rem; }
+
+  /* SECTIONS */
   .section { padding: 6rem 4rem; }
-  .section-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-  .section h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    line-height: 1;
-    letter-spacing: 0.02em;
-    margin-bottom: 1.5rem;
-  }
-  .problem-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: rgba(255,255,255,0.06);
-    margin-top: 3rem;
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-  .problem-item {
-    background: var(--black);
-    padding: 2.5rem;
-    position: relative;
-  }
-  .problem-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 4rem;
-    color: rgba(201,168,76,0.1);
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    line-height: 1;
-  }
-  .problem-item h3 {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.8rem;
-  }
+  .section-tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+  .section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; letter-spacing: 0.02em; margin-bottom: 1.5rem; }
+
+  /* PROBLEM GRID */
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); margin-top: 3rem; border: 1px solid rgba(255,255,255,0.06); }
+  .problem-item { background: var(--black); padding: 2.5rem; position: relative; }
+  .problem-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(201,168,76,0.1); position: absolute; top: 1rem; right: 1.5rem; line-height: 1; }
+  .problem-item h3 { font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
   .problem-item p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
 
-  /* COMPARISON */
-  .comparison-section { padding: 6rem 4rem; background: var(--grey); }
-  .comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 3rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-  }
-  .comparison-table th {
-    padding: 1rem 1.5rem;
-    text-align: left;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    color: var(--text-muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 400;
-  }
-  .comparison-table th:last-child { color: var(--gold); }
-  .comparison-table td {
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    color: var(--text-muted);
-  }
-  .comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
-  .comparison-table td:last-child { color: var(--white); font-weight: 500; }
-  .check { color: var(--green); }
-  .cross { color: var(--red); }
-
-  /* PRICING */
-  .pricing-section { padding: 6rem 4rem; }
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1px;
-    background: rgba(255,255,255,0.06);
-    margin-top: 3rem;
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-  .pricing-card {
-    background: var(--black);
-    padding: 2.5rem;
-    position: relative;
-  }
-  .pricing-card.featured {
-    background: var(--grey);
-    border: 1px solid var(--gold);
-    margin: -1px;
-  }
-  .price-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--black);
-    padding: 0.2rem 0.6rem;
-    display: inline-block;
-    margin-bottom: 1.5rem;
-  }
-  .price-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
-  }
-  .price-amount {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-  .price-period {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    letter-spacing: 0.1em;
-    margin-bottom: 2rem;
-  }
-  .price-features {
-    list-style: none;
-    margin-bottom: 2rem;
-  }
-  .price-features li {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .price-features li::before { content: '→'; color: var(--gold); font-size: 0.8rem; }
-
-  /* CREATOR */
-  .creator-section { padding: 6rem 4rem; background: var(--grey); }
-  .creator-inner {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    align-items: start;
-  }
-  .creator-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 5rem;
-    color: rgba(201,168,76,0.15);
-    line-height: 0.9;
-    letter-spacing: 0.02em;
-  }
-  .creator-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.5rem;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-    margin-bottom: 0.3rem;
-  }
-  .creator-title {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-  }
-  .creator-bio {
-    font-size: 1rem;
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-  }
-
-  /* TERMINAL DEMO */
-  .terminal {
-    background: #0d1117;
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 0;
-    padding: 2rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    line-height: 1.8;
-    margin-top: 3rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .terminal::before {
-    content: '● ● ●';
-    display: block;
-    color: var(--text-muted);
-    font-size: 0.7rem;
-    margin-bottom: 1rem;
-    letter-spacing: 0.3em;
-  }
+  /* TERMINAL */
+  .terminal { background: #0d1117; border: 1px solid rgba(201,168,76,0.3); padding: 2rem; font-family: 'DM Mono', monospace; font-size: 0.8rem; line-height: 1.8; margin-top: 3rem; }
+  .terminal::before { content: '● ● ●'; display: block; color: var(--text-muted); font-size: 0.7rem; margin-bottom: 1rem; letter-spacing: 0.3em; }
   .terminal .prompt { color: var(--gold); }
   .terminal .output { color: var(--green); }
   .terminal .comment { color: var(--text-muted); font-style: italic; }
   .terminal .error { color: var(--red); }
   .terminal .blocked { color: var(--red); background: rgba(201,76,76,0.1); padding: 0.2rem 0.5rem; }
-  .terminal .passed { color: var(--green); background: rgba(76,201,122,0.1); padding: 0.2rem 0.5rem; }
+
+  /* COMPARISON */
+  .comparison-section { padding: 6rem 4rem; background: var(--grey); }
+  .comparison-table { width: 100%; border-collapse: collapse; margin-top: 3rem; font-family: 'DM Mono', monospace; font-size: 0.8rem; }
+  .comparison-table th { padding: 1rem 1.5rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400; }
+  .comparison-table th:last-child { color: var(--gold); }
+  .comparison-table td { padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); }
+  .comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .comparison-table td:last-child { color: var(--white); font-weight: 500; }
+  .check { color: #4cc97a; }
+  .cross { color: #c94c4c; }
+
+  /* THINKMARKETS SECTION */
+  .tm-section { padding: 6rem 4rem; background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); }
+  .tm-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .tm-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(201,168,76,0.2); border: 1px solid rgba(201,168,76,0.2); }
+  .tm-stat-item { background: var(--black); padding: 1.5rem; text-align: center; }
+  .tm-stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
+  .tm-stat-lbl { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* PRICING */
+  .pricing-section { padding: 6rem 4rem; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: rgba(255,255,255,0.06); margin-top: 3rem; border: 1px solid rgba(255,255,255,0.06); }
+  .pricing-card { background: var(--black); padding: 2.5rem; position: relative; }
+  .pricing-card.featured { background: var(--grey); border: 1px solid var(--gold); margin: -1px; }
+  .price-badge { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--gold); color: var(--black); padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 1.5rem; }
+  .price-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+  .price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
+  .price-period { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; margin-bottom: 2rem; }
+  .price-features { list-style: none; margin-bottom: 2rem; }
+  .price-features li { font-size: 0.9rem; color: var(--text-muted); padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 0.6rem; }
+  .price-features li::before { content: '→'; color: var(--gold); font-size: 0.8rem; flex-shrink: 0; }
+
+  /* FAQ */
+  .faq-section { padding: 6rem 4rem; background: var(--grey); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+  .faq-item { padding: 1.5rem; border: 1px solid rgba(255,255,255,0.06); }
+  .faq-q { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 0.8rem; }
+  .faq-a { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* CREATOR */
+  .creator-section { padding: 6rem 4rem; background: var(--black); }
+  .creator-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+  .creator-label { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: rgba(201,168,76,0.15); line-height: 0.9; letter-spacing: 0.02em; }
+  .creator-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+  .creator-title { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .creator-bio { font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
+
+  /* CONTACT */
+  .contact-section { padding: 5rem 4rem; background: var(--grey); text-align: center; }
+  .contact-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); color: var(--white); margin-bottom: 1rem; }
+  .contact-section p { font-size: 1rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
   /* FOOTER */
-  footer {
-    padding: 3rem 4rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-  }
-  .footer-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    letter-spacing: 0.08em;
-  }
+  footer { padding: 3rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--gold); letter-spacing: 0.15em; }
+  .footer-text { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; }
   .footer-links { display: flex; gap: 2rem; }
-  .footer-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
+  .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold); }
 
   /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .hero-tag, .hero h1, .hero-sub, .hero-actions { animation: fadeUp 0.6s ease both; }
   .hero h1 { animation-delay: 0.1s; }
   .hero-sub { animation-delay: 0.2s; }
   .hero-actions { animation-delay: 0.3s; }
   .hero-stats { animation: fadeUp 0.6s ease 0.4s both; }
 
+  /* MOBILE */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    .hero, .section, .pricing-section, .creator-section { padding: 5rem 1.5rem 3rem; }
-    .comparison-section { padding: 3rem 1.5rem; }
-    .problem-grid { grid-template-columns: 1fr; }
+    .hero, .section, .pricing-section, .creator-section, .contact-section { padding: 5rem 1.5rem 3rem; }
+    .comparison-section, .faq-section, .tm-section { padding: 3rem 1.5rem; }
+    .problem-grid, .faq-grid, .tm-inner { grid-template-columns: 1fr; }
     .creator-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .creator-label { font-size: 3rem; }
     footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    .hero::after { display: none; }
   }
 </style>
 </head>
@@ -464,46 +198,36 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Claude ECS</div>
+  <a href="#" class="nav-logo">Claude ECS</a>
   <ul class="nav-links">
     <li><a href="#problem">The Problem</a></li>
     <li><a href="#comparison">Why ECS</a></li>
+    <li><a href="#thinkmarkets">ThinkMarkets</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#creator">Creator</a></li>
-    <li><a href="https://github.com/Evangrobbelaar/claude-ecs-community" target="_blank">GitHub</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://github.com/Evangrobbelaar/claude-ecs-community" target="_blank" rel="noopener">GitHub</a></li>
   </ul>
   <a href="#pricing" class="nav-cta">Get Started</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">Claude External Context System</div>
-  <h1>Claude That <span>Actually</span> Follows Rules</h1>
+  <div class="hero-tag">Claude External Context System — The Leading AI Enforcement Framework</div>
+  <h1>Claude That <span>Actually</span><br>Follows Rules</h1>
   <p class="hero-sub">
     The first system that doesn't just store context for Claude — it enforces it.
-    Built from real trading sessions. Zero installation. Works in claude.ai chat.
+    Built from real trading sessions on ThinkMarkets. Zero installation. Works in claude.ai chat.
   </p>
   <div class="hero-actions">
-    <a href="https://github.com/Evangrobbelaar/claude-ecs-community" class="btn-primary" target="_blank">Free on GitHub →</a>
+    <a href="https://github.com/Evangrobbelaar/claude-ecs-community" class="btn-primary" target="_blank" rel="noopener">Free on GitHub →</a>
     <a href="#pricing" class="btn-secondary">Get Premium Templates</a>
   </div>
+  <div class="tm-badge"><span>Built & validated exclusively on ThinkMarkets ThinkTrader</span></div>
   <div class="hero-stats">
-    <div>
-      <div class="stat-num">R2,297</div>
-      <div class="stat-label">Profit — Week 1</div>
-    </div>
-    <div>
-      <div class="stat-num">0</div>
-      <div class="stat-label">Rules Violated After Setup</div>
-    </div>
-    <div>
-      <div class="stat-num">&lt;10min</div>
-      <div class="stat-label">Setup Time</div>
-    </div>
-    <div>
-      <div class="stat-num">13</div>
-      <div class="stat-label">Proven Trading Rules</div>
-    </div>
+    <div><div class="stat-num">R2,297</div><div class="stat-label">Profit — Week 1</div></div>
+    <div><div class="stat-num">0</div><div class="stat-label">Rules Violated After Setup</div></div>
+    <div><div class="stat-num">&lt;10min</div><div class="stat-label">Setup Time</div></div>
+    <div><div class="stat-num">13</div><div class="stat-label">Proven Trading Rules</div></div>
   </div>
 </section>
 
@@ -511,31 +235,31 @@
 <section class="section" id="problem">
   <div class="section-tag">The Problem</div>
   <h2>Claude Reads Rules.<br>It Doesn't <span style="color:var(--gold)">Follow</span> Them.</h2>
-  <p style="color:var(--text-muted);max-width:580px;font-size:1rem;line-height:1.8">
+  <p style="color:var(--text-muted);max-width:580px;font-size:1rem;line-height:1.8;margin-bottom:0">
     Every Claude memory solution stores your rules as passive text. Claude reads them — sometimes.
     Under pressure, during fast analysis, when things get complex — it skips steps.
-    That's how a R1,046 account nearly got wiped on one trade.
+    That's how a R1,046 account nearly got wiped on one trade due to wrong lot sizing.
   </p>
   <div class="problem-grid">
     <div class="problem-item">
       <div class="problem-num">01</div>
       <h3>Internal memory fails</h3>
-      <p>Claude's built-in memory stores rules as suggestions. Process steps get skipped when Claude is under pressure to respond quickly.</p>
+      <p>Claude's built-in memory stores rules as suggestions. Process steps get skipped when Claude is under pressure to respond quickly. This is not a Claude flaw — it is an architectural limitation.</p>
     </div>
     <div class="problem-item">
       <div class="problem-num">02</div>
       <h3>Existing solutions require installation</h3>
-      <p>claude-mem, claude-memory, supermemory — all require npm, Python, terminals, and background processes. Not for regular users.</p>
+      <p>claude-mem, claude-memory, supermemory — all require npm, Python, terminals, and background processes running on your machine. Built for developers, not retail traders.</p>
     </div>
     <div class="problem-item">
       <div class="problem-num">03</div>
-      <h3>Memory ≠ enforcement</h3>
-      <p>Remembering a rule and being blocked from breaking it are completely different things. No existing system enforces — they only remind.</p>
+      <h3>Memory is not enforcement</h3>
+      <p>Remembering a rule and being blocked from breaking it are completely different things. No existing system enforces — they only remind. Claude ECS blocks.</p>
     </div>
     <div class="problem-item">
       <div class="problem-num">04</div>
       <h3>Context resets every conversation</h3>
-      <p>Every new chat, Claude starts from zero. Months of learned behaviour, rules, and lessons — gone. You re-explain everything.</p>
+      <p>Every new chat, Claude starts from zero. Months of learned behaviour, rules, and hard-won lessons disappear. You re-explain everything, every time.</p>
     </div>
   </div>
 </section>
@@ -544,26 +268,27 @@
 <section class="section" style="padding-top:0">
   <div class="section-tag">The Enforcer In Action</div>
   <h2>Bad Trades Get <span style="color:var(--red)">Blocked</span>.<br>Automatically.</h2>
+  <p style="color:var(--text-muted);max-width:580px;font-size:1rem;line-height:1.8">This is a real example from a live ThinkMarkets session. Claude attempted to place a Gold trade at 3 units. The enforcer caught it before execution.</p>
   <div class="terminal">
-    <div class="comment">// Claude attempts to place a Gold trade at 3 units...</div>
+    <div class="comment">// Claude attempts to place a Gold trade at 3 units — wrong sizing...</div>
     <br>
     <div class="prompt">=== PRE-TRADE ENFORCER ===</div>
     <div>Instrument: XAUUSD | Direction: Buy | Entry: 4,461</div>
     <div>SL: 4,442 (19pts) | TP: 4,490 (29pts) | Size: 3 units</div>
     <br>
-    <div>1. News scan done?          <span class="output">✅</span></div>
-    <div>2. Correct session?         <span class="output">✅</span></div>
-    <div>3. 5+ instruments scanned?  <span class="output">✅</span></div>
-    <div>4. H4 confirms trend?       <span class="output">✅</span></div>
-    <div>5. H1 pullback confirmed?   <span class="output">✅</span></div>
-    <div>6. M15 entry signal?        <span class="output">✅</span></div>
-    <div>7. Lot size correct?        <span class="error">❌ — 3 units = R48/pt = R912 risk</span></div>
-    <div>8. SL behind structure?     <span class="output">✅</span></div>
-    <div>9. R:R 1.2:1+?              <span class="output">✅</span></div>
-    <div>10. Risk under 20%?         <span class="error">❌ — R912 = 44% of account</span></div>
+    <div>1.  News scan done? No events within 2 hours?    <span class="output">✅</span></div>
+    <div>2.  Correct session for this instrument?         <span class="output">✅</span></div>
+    <div>3.  5+ instruments scanned? Best setup?         <span class="output">✅</span></div>
+    <div>4.  H4 confirms trend direction?                <span class="output">✅</span></div>
+    <div>5.  H1 shows pullback/consolidation?            <span class="output">✅</span></div>
+    <div>6.  M15 shows structure entry signal?           <span class="output">✅</span></div>
+    <div>7.  Lot size correct for account?               <span class="error">❌ — 3 units = R48/pt = R912 risk</span></div>
+    <div>8.  SL behind structural level with buffer?     <span class="output">✅</span></div>
+    <div>9.  R:R minimum 1.2:1?                         <span class="output">✅</span></div>
+    <div>10. Risk under 20% of account?                  <span class="error">❌ — R912 = 44% of R1,046 account</span></div>
     <br>
-    <div class="blocked">RESULT: FAILED — ITEMS 7 AND 10 — TRADE BLOCKED</div>
-    <div class="comment">// Fix: Reduce to 1 unit maximum on Gold. Rerun enforcer.</div>
+    <div class="blocked">RESULT: FAILED — ITEMS 7 AND 10 — TRADE BLOCKED. Fix sizing and rerun.</div>
+    <div class="comment">// Without the enforcer: R1,042 at risk on a R1,046 account. One trade. Total loss.</div>
   </div>
 </section>
 
@@ -581,16 +306,46 @@
     </thead>
     <tbody>
       <tr><td>Works in claude.ai chat</td><td><span class="cross">✗</span> Claude Code only</td><td><span class="check">✓</span> Any interface</td></tr>
-      <tr><td>Zero installation</td><td><span class="cross">✗</span> npm / Python required</td><td><span class="check">✓</span> Nothing to install</td></tr>
+      <tr><td>Zero installation</td><td><span class="cross">✗</span> npm / Python / terminal required</td><td><span class="check">✓</span> Nothing to install</td></tr>
       <tr><td>Rule enforcement</td><td><span class="cross">✗</span> Passive memory only</td><td><span class="check">✓</span> Enforcer blocks violations</td></tr>
-      <tr><td>Human readable</td><td><span class="cross">✗</span> SQLite / vector DBs</td><td><span class="check">✓</span> Plain markdown file</td></tr>
+      <tr><td>Human readable context</td><td><span class="cross">✗</span> SQLite / vector databases</td><td><span class="check">✓</span> Plain markdown file</td></tr>
       <tr><td>User can edit directly</td><td><span class="cross">✗</span> Technical skill required</td><td><span class="check">✓</span> Edit on GitHub in browser</td></tr>
-      <tr><td>Verification protocol</td><td><span class="cross">✗</span> Not available</td><td><span class="check">✓</span> Confirmation phrase</td></tr>
+      <tr><td>Verification protocol</td><td><span class="cross">✗</span> Not available</td><td><span class="check">✓</span> Confirmation phrase every session</td></tr>
       <tr><td>Pre-action checklists</td><td><span class="cross">✗</span> Not available</td><td><span class="check">✓</span> Built-in enforcer</td></tr>
+      <tr><td>Live broker execution</td><td><span class="cross">✗</span> Not available</td><td><span class="check">✓</span> ThinkMarkets MCP integration</td></tr>
       <tr><td>Portable across accounts</td><td><span class="cross">✗</span> Tied to local machine</td><td><span class="check">✓</span> Any Claude, anywhere</td></tr>
       <tr><td>Setup time</td><td><span class="cross">✗</span> Hours to days</td><td><span class="check">✓</span> Under 10 minutes</td></tr>
     </tbody>
   </table>
+</section>
+
+<!-- THINKMARKETS SECTION -->
+<section class="tm-section" id="thinkmarkets">
+  <div class="tm-inner">
+    <div>
+      <div class="section-tag">ThinkMarkets Integration</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1;margin-bottom:1.5rem">Built On<br><span style="color:var(--gold)">ThinkMarkets.</span><br>Not Adapted For It.</h2>
+      <p style="color:var(--text-muted);font-size:1rem;line-height:1.8;margin-bottom:1.5rem">
+        Claude ECS was not built as a generic system then adapted for ThinkMarkets. Every rule, every lesson, every critical sizing note came from a real ThinkMarkets trading session using ThinkTrader's MCP integration.
+      </p>
+      <p style="color:var(--text-muted);font-size:1rem;line-height:1.8;margin-bottom:2rem">
+        ThinkTrader's MCP (Model Context Protocol) connection allows Claude to pull live prices, analyse market structure across multiple instruments simultaneously, run the pre-trade enforcer, and execute trades — all within one conversation. No other broker in this form.
+      </p>
+      <a href="https://www.thinkmarkets.com" class="btn-secondary" target="_blank" rel="noopener">Learn about ThinkMarkets →</a>
+    </div>
+    <div>
+      <div class="tm-stat-grid">
+        <div class="tm-stat-item"><div class="tm-stat-val">+R2,297</div><div class="tm-stat-lbl">Week 1 P&L</div></div>
+        <div class="tm-stat-item"><div class="tm-stat-val">R1,046</div><div class="tm-stat-lbl">Starting Balance</div></div>
+        <div class="tm-stat-item"><div class="tm-stat-val">XAUUSD</div><div class="tm-stat-lbl">Primary Instrument</div></div>
+        <div class="tm-stat-item"><div class="tm-stat-val">6</div><div class="tm-stat-lbl">Trades Week 1</div></div>
+        <div class="tm-stat-item"><div class="tm-stat-val">0</div><div class="tm-stat-lbl">Rules Violated</div></div>
+        <div class="tm-stat-item"><div class="tm-stat-val">ZAR</div><div class="tm-stat-lbl">Account Currency</div></div>
+        <div class="tm-stat-item"><div class="tm-stat-val">Demo</div><div class="tm-stat-lbl">Account Type</div></div>
+        <div class="tm-stat-item"><div class="tm-stat-val">MCP</div><div class="tm-stat-lbl">Execution Method</div></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- PRICING -->
@@ -602,15 +357,16 @@
       <div class="price-badge">Free Forever</div>
       <div class="price-name">Community</div>
       <div class="price-amount">R0</div>
-      <div class="price-period">Open Source — MIT License</div>
+      <div class="price-period">Open Source — MIT License with Attribution</div>
       <ul class="price-features">
-        <li>Master prompt (full)</li>
-        <li>Basic trading template (empty)</li>
+        <li>Master prompt — complete setup instructions</li>
+        <li>Basic trading template (empty framework)</li>
         <li>GitHub community access</li>
-        <li>Community lessons & rules</li>
+        <li>Community lessons and rules</li>
         <li>Contributing guidelines</li>
+        <li>Issue tracking and discussions</li>
       </ul>
-      <a href="https://github.com/Evangrobbelaar/claude-ecs-community" class="btn-secondary" target="_blank" style="display:block;text-align:center;padding:0.8rem">Get on GitHub →</a>
+      <a href="https://github.com/Evangrobbelaar/claude-ecs-community" class="btn-secondary" target="_blank" rel="noopener" style="display:block;text-align:center;padding:0.8rem">Get on GitHub →</a>
     </div>
     <div class="pricing-card featured">
       <div class="price-badge">Most Popular</div>
@@ -620,14 +376,14 @@
       <ul class="price-features">
         <li>13 proven trading rules — pre-written</li>
         <li>Full pre-trade enforcer configured</li>
-        <li>Instrument rules: Gold, Forex, Indices</li>
+        <li>Gold, Forex, Indices instrument rules</li>
         <li>10 critical lessons documented</li>
         <li>News calendar logic built in</li>
-        <li>Session timing rules pre-set</li>
-        <li>ThinkMarkets platform notes</li>
-        <li>Step-by-step setup guide</li>
+        <li>Session timing rules pre-set (SAST)</li>
+        <li>ThinkMarkets platform-specific notes</li>
+        <li>Step-by-step GitHub setup guide</li>
       </ul>
-      <a href="https://evangroove.gumroad.com/l/lcltf" target="_blank" class="btn-primary" style="display:block;text-align:center;padding:0.8rem">Get Trading Pro →</a>
+      <a href="https://evangroove.gumroad.com/l/lcltf" target="_blank" rel="noopener" class="btn-primary" style="display:block;text-align:center;padding:0.8rem">Get Trading Pro →</a>
     </div>
     <div class="pricing-card">
       <div class="price-badge">Best Value</div>
@@ -636,18 +392,58 @@
       <div class="price-period">One-time payment — $27 USD</div>
       <ul class="price-features">
         <li>Everything in Trading Pro</li>
-        <li>13 Rules PDF — print & keep at desk</li>
+        <li>13 Rules PDF — printable, keep at your desk</li>
         <li>Enforcer Cheat Sheet — A4 printable</li>
         <li>6 months of template updates</li>
         <li>Priority GitHub issue responses</li>
       </ul>
-      <a href="https://evangroove.gumroad.com/l/nrqdw" target="_blank" class="btn-secondary" style="display:block;text-align:center;padding:0.8rem">Get Premium →</a>
+      <a href="https://evangroove.gumroad.com/l/nrqdw" target="_blank" rel="noopener" class="btn-secondary" style="display:block;text-align:center;padding:0.8rem">Get Premium →</a>
     </div>
   </div>
   <p style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--text-muted);margin-top:1.5rem;letter-spacing:0.08em">
-    Enterprise implementations available — contact for pricing.
-    Community tier is and will always remain free.
+    Enterprise implementations available — contact evangrobbelaar@gmail.com for pricing.
+    Community tier is and will always remain free and open source.
   </p>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-tag">FAQ</div>
+  <h2>Common<br><span style="color:var(--gold)">Questions</span>.</h2>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">Does this work on the free Claude plan?</div>
+      <div class="faq-a">Yes. Claude ECS uses bash git commands and web_fetch — both available on any Claude plan including free. The GitHub account is also free.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does it work with brokers other than ThinkMarkets?</div>
+      <div class="faq-a">The system was built and validated exclusively on ThinkMarkets using their ThinkTrader MCP integration. The rules and framework can be adapted for other brokers but ThinkMarkets is the only validated platform.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How is this different from claude-mem or claude-memory?</div>
+      <div class="faq-a">Those solutions require installation (npm/Python), only work in Claude Code, and only store memory passively. Claude ECS works in claude.ai chat, requires nothing to install, and actively enforces rules — blocking trades if any checklist item fails.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is my trading data private?</div>
+      <div class="faq-a">Completely. Your context file lives in YOUR GitHub repository — private or public, your choice. No data is sent anywhere except between you and Claude. You have full sovereignty over your trading context.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does Claude make autonomous trading decisions?</div>
+      <div class="faq-a">No. Claude analyses market structure, identifies setups, and executes trades — but only when you approve. The enforcer blocks bad trades automatically, but every final decision is yours. This is a discipline tool, not an automated bot.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What happens if Claude doesn't say "Context loaded"?</div>
+      <div class="faq-a">Simply say "Read your context file first" — Claude will immediately fetch the GitHub file and load all rules before doing anything else. The verification phrase is your guarantee the system is active.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I edit the context file myself?</div>
+      <div class="faq-a">Yes — open the file on GitHub and edit directly in your browser. Changes are live immediately for the next conversation. You have complete control and visibility over Claude's entire "brain."</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the Claude ECS community?</div>
+      <div class="faq-a">An open source GitHub community where traders and developers share real lessons, proven rules, and validated setups. Contributions are voluntary and attribution is always given. The community makes the system better for everyone.</div>
+    </div>
+  </div>
 </section>
 
 <!-- CREATOR -->
@@ -656,30 +452,26 @@
     <div class="creator-label">EVAN<br>GROB<br>BELAAR</div>
     <div>
       <div class="creator-name">Evan Grobbelaar</div>
-      <div class="creator-title">Creator — Claude ECS | Johannesburg, South Africa | 2026</div>
-      <p class="creator-bio">
-        Claude ECS wasn't designed in theory. It was built through real live trading sessions
-        on a R1,046 demo account — with real mistakes, real losses, and real lessons committed
-        to GitHub after every session.
-      </p>
-      <p class="creator-bio">
-        After a near-miss where Claude placed a Gold trade risking R1,042 on a R1,046 account
-        due to wrong lot sizing, the question became: how do we build a system that Claude
-        actually follows — not just reads?
-      </p>
-      <p class="creator-bio">
-        The answer became the External Context System. Week 1 results: +R2,297 profit.
-        Rules violated after system setup: zero.
-      </p>
-      <p class="creator-bio">
-        Evan also builds ClockPay — a biometric time-attendance and payroll system for
-        South African SMEs — and is the founder of the Claude ECS open source community.
-      </p>
+      <div class="creator-title">Creator of Claude ECS | Developer | Trader | Johannesburg, South Africa | 2026</div>
+      <p class="creator-bio">Claude ECS was not designed in theory. It was built through real live trading sessions on a R1,046 ThinkMarkets demo account — with real mistakes, real losses, and real lessons committed to GitHub after every session.</p>
+      <p class="creator-bio">After a near-miss where Claude placed a Gold trade risking R1,042 on a R1,046 account due to wrong lot sizing, the question became: how do we build a system that Claude actually follows — not just reads? The answer became the External Context System.</p>
+      <p class="creator-bio">Week 1 results: +R2,297 profit. Rules violated after system setup: zero. The system grew from real experience and is now available as an open source framework for any Claude user.</p>
+      <p class="creator-bio">Evan also builds ClockPay — a biometric time-attendance and payroll system for South African SMEs — and is the founder of the Claude ECS open source community.</p>
       <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
-        <a href="https://github.com/Evangrobbelaar" class="btn-secondary" target="_blank">GitHub →</a>
+        <a href="https://github.com/Evangrobbelaar" class="btn-secondary" target="_blank" rel="noopener">GitHub →</a>
         <a href="mailto:evangrobbelaar@gmail.com" class="btn-secondary">Contact →</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <h2>Get In Touch</h2>
+  <p>Enterprise implementations, partnership enquiries, ThinkMarkets broker discussions, or general questions.</p>
+  <div class="contact-links">
+    <a href="mailto:evangrobbelaar@gmail.com" class="btn-primary">evangrobbelaar@gmail.com →</a>
+    <a href="https://github.com/Evangrobbelaar/claude-ecs-community/issues" class="btn-secondary" target="_blank" rel="noopener">GitHub Issues →</a>
   </div>
 </section>
 
@@ -688,9 +480,10 @@
   <div class="footer-logo">Claude ECS</div>
   <div class="footer-text">Created by Evan Grobbelaar · Johannesburg, South Africa · 2026</div>
   <div class="footer-links">
-    <a href="https://github.com/Evangrobbelaar/claude-ecs-community" target="_blank">GitHub</a>
+    <a href="https://github.com/Evangrobbelaar/claude-ecs-community" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://evangroove.gumroad.com" target="_blank" rel="noopener">Store</a>
     <a href="mailto:evangrobbelaar@gmail.com">Contact</a>
-    <a href="https://github.com/Evangrobbelaar/claude-ecs-community/blob/main/LICENSE.md" target="_blank">License</a>
+    <a href="https://github.com/Evangrobbelaar/claude-ecs-community/blob/main/LICENSE.md" target="_blank" rel="noopener">License</a>
   </div>
 </footer>
 
